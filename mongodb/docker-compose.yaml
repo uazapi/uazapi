@@ -20,8 +20,7 @@ services:
       - 26712:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      # Set a password to access the bank
-      MONGO_INITDB_ROOT_PASSWORD: <password>
+      MONGO_INITDB_ROOT_PASSWORD: b5ti18bDi7NCENgiLctv
     networks:
       - api-net
     expose:
