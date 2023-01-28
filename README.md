@@ -8,7 +8,7 @@
 
 ## Instalação Rápida
 
-para instalar automaticamente execute o comando, recomendo fazer a instação passo a passo abaixo, pois esse script ainda não foi testado.
+para instalar automaticamente execute o comando abaixo, recomendo não usar o comando abaixo, e fazer a instação passo a passo abaixo, pois esse script ainda não foi testado.
 
 ```bash
   sudo su
@@ -135,12 +135,13 @@ Se você não fez a instalação automática, te ensino a fazer passo a passo, p
 ```bash
   docker-compose-mongodb up -d
 ```
-11- renomear arquivo .env-rename para .env conforme suas necessidades, principalmente trocando a senha global, caso dê erro na hora de editar o arquivo, execute o comando:
+11- renomear arquivo .env-rename para .env e editá-lo conforme suas necessidades, principalmente trocando a senha global, caso dê erro na hora de editar o arquivo, execute o comando:
 ```bash
   chmod -R 777 /home/ubuntu/uazapi
 ```
+## Deploy
 
-12- rodar a aplicação
+12- rodar a aplicação dentro da pasta uazapi (cd uazapi)
 ```bash
   npm run start
 ```
@@ -156,9 +157,6 @@ Se você não fez a instalação automática, te ensino a fazer passo a passo, p
   pm2 save
 ```
 
-## Deploy
-
-Depois de instalado, para fazer o deploy desse projeto rode dentro da pasta uazapi
 
 ```bash
   npm run start
