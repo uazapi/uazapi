@@ -8,7 +8,7 @@
 
 ## Instalação Rápida
 
-para instalar automaticamente execute o comando:
+para instalar automaticamente execute o comando, recomendo fazer a instação passo a passo abaixo, pois esse script ainda não foi testado.
 
 ```bash
   sudo su
