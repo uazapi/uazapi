@@ -8,7 +8,7 @@
 
 ## Instalação Rápida
 
-para instalar automaticamente execute o comando abaixo, recomendo não usar o comando abaixo, e fazer a instação passo a passo abaixo, pois esse script ainda não foi testado.
+para instalar automaticamente execute o comando abaixo, recomendo não usar a instalção rápida pois o script ainda não foi testado, pule para instalação passo a passo.
 
 ```bash
   sudo su
@@ -78,7 +78,9 @@ Se você não fez a instalação automática, te ensino a fazer passo a passo, p
 ```bash
   dpkg-reconfigure tzdata
 ```
-
+```bash
+  reboot
+```
 4- instalar o node;
 
 ```bash
@@ -174,3 +176,29 @@ Para manter rodando mesmo reiniciando execute:
 ```bash
   pm2 save
 ```
+
+# SSL - subdomínio
+
+Adicione na cloudflare o subdomínio: 
+subtipo: A
+colocar ip VPS
+desabilitar proxy
+ttl: auto
+
+```bash
+  snap install --classic certbot
+```
+```bash
+  certbot certonly --standalone
+```
+Não esqueça de alterar o .env para https e porta 443, e coloca o domínio em "DOMAIN".
+
+
+#Atualizar API
+
+```bash
+  git pull
+```
+
+
+
