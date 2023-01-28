@@ -147,6 +147,7 @@ Se você não fez a instalação automática, te ensino a fazer passo a passo, p
 ```bash
   npm run start
 ```
+Control+C para fechar a aplicação
 
 13- Rodar aplicação via pm2, para que mesmo que o sistema dê reboot, continue rodando
 ```bash
