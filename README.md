@@ -164,26 +164,19 @@ Se você não fez a instalação automática, te ensino a fazer passo a passo, p
   npm run start
 ```
 
-Para manter rodando mesmo reiniciando execute:
-
-
-```bash
-  pm2 start npm run start
-```
-```bash
-  pm2 startup
-  ```
-```bash
-  pm2 save
-```
 
 # SSL - subdomínio
 
 Adicione na cloudflare o subdomínio: 
+
 subtipo: A
+
 colocar ip VPS
+
 desabilitar proxy
+
 ttl: auto
+
 
 ```bash
   snap install --classic certbot
