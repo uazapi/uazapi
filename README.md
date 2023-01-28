@@ -37,10 +37,14 @@ O arquivo bash irá :
 8- clonar esse repositório;
 
 9- instalar dependencias do repositório;
+
+10- instalar mongodb via docker
     
 ## Instalação passo a passo
 
 Se você não fez a instalação automática, te ensino a fazer passo a passo, para customizar algum passo.
+
+Se você fez atualização automática, pule para o passo 11.
 
 
 1- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
