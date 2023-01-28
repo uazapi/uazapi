@@ -1,7 +1,7 @@
 
 # uazapi
 
-
+https://uazapi.bubbleapps.io/
 
 
 
@@ -188,7 +188,7 @@ ttl: auto
 Não esqueça de alterar o .env para https e porta 443, e coloca o domínio em "DOMAIN".
 
 
-#Atualizar API
+# Atualizar API
 
 ```bash
   git pull
