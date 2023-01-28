@@ -8,7 +8,7 @@ https://uazapi.bubbleapps.io/
 
 ## Instalação Rápida
 
-para instalar automaticamente execute o comando abaixo, recomendo não usar a instalção rápida pois o script ainda não foi testado, pule para instalação passo a passo.
+para instalar automaticamente execute o comando abaixo, recomendo não usar a instalação rápida pois o script ainda não foi testado, pule para instalação passo a passo.
 
 ```bash
   sudo su
@@ -80,6 +80,10 @@ Se você não fez a instalação automática, te ensino a fazer passo a passo, p
 ```
 ```bash
   reboot
+```
+
+```bash
+  sudo su
 ```
 4- instalar o node;
 
