@@ -159,7 +159,7 @@ Control+C para fechar a aplicação
 
 13- Rodar aplicação via pm2, para que mesmo que o sistema dê reboot, continue rodando
 ```bash
-pm2 start npm run start
+pm2 start 'npm run start'
 ```
 ```bash
 pm2 startup
