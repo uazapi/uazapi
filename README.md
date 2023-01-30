@@ -11,11 +11,11 @@ https://uazapi.bubbleapps.io/
 para instalar automaticamente execute o comando abaixo, recomendo não usar a instalação rápida pois o script ainda não foi testado, pule para instalação passo a passo.
 
 ```bash
-  sudo su
+sudo su
 ```
 
 ```bash
-  curl -sL https://raw.githubusercontent.com/uazapi/uazapi/master/install.sh | bash
+curl -sL https://raw.githubusercontent.com/uazapi/uazapi/master/install.sh | bash
 ```
 
 O arquivo bash irá :
@@ -50,127 +50,127 @@ Se você fez atualização automática, pule para o passo 11.
 1- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
 
 ```bash
-  sudo su
+sudo su
 ```
 ```bash
-  ufw enable
+ufw enable
 ```
 ```bash
-  ufw allow 22/tcp
-```
-
-```bash
-  ufw allow 80/tcp
+ufw allow 22/tcp
 ```
 
 ```bash
-  ufw allow 8080/tcp
+ufw allow 80/tcp
 ```
 
 ```bash
-  ufw allow 443/tcp
+ufw allow 8080/tcp
+```
+
+```bash
+ufw allow 443/tcp
 ```
 
 2- Fazer update do sistema;
 
 ```bash
-  apt update && apt upgrade -y  && apt dist-upgrade -y
+apt update && apt upgrade -y  && apt dist-upgrade -y
 ```
 
 3- Setar o timezone;
 
 ```bash
-  dpkg-reconfigure tzdata
+dpkg-reconfigure tzdata
 ```
 ```bash
-  reboot
+reboot
 ```
 
 ```bash
-  sudo su
+sudo su
 ```
 4- instalar o node;
 
 ```bash
-  curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 ```
 ```bash
-  apt-get install -y nodejs
+apt-get install -y nodejs
 ```
 
 5- instalar o NPM;
 
 ```bash
-  npm install -g npm@latest
+npm install -g npm@latest
 ```
 
 6- instalar o pm2;
 
 ```bash
-  npm i -g pm2
+npm i -g pm2
 ```
 
 7- instalar docker;
 
 ```bash
-  curl -fsSL https://get.docker.com -o get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh
 ```
 ```bash
-  sh get-docker.sh
+sh get-docker.sh
 ```
 ```bash
-  usermod -aG docker ${USER}
+usermod -aG docker ${USER}
 ```
 ```bash
-  apt-get install docker-compose
+apt-get install docker-compose
 ```
 
 8- clonar esse repositório;
 
 ```bash
-  git clone https://github.com/uazapi/uazapi.git
+git clone https://github.com/uazapi/uazapi.git
 ```
 
 9- instalar dependencias do repositório;
 ```bash
-  cd uazapi
+cd uazapi
 ```
 ```bash
-  npm i
+npm i
 ```
 10- instalar mongodb via docker 
 
   Verifique que no arquivo docker-compose-mongodb.yaml está setado uma senha para o mongo igual ao env-rename, caso queira trocar a senha, troque antes do comando abaixo, e não esqueça de trocar no arquivo .env) - caso dê erro de permissão na hora de editar rode o comando "sudo chmod -R 777 /home/ubuntu/uazapi".
 
 ```bash
-  docker-compose-mongodb up -d
+docker-compose-mongodb up -d
 ```
 11- renomear arquivo .env-rename para .env e editá-lo conforme suas necessidades, principalmente trocando a senha global, caso dê erro na hora de editar o arquivo, execute o comando:
 ```bash
-  chmod -R 777 /home/ubuntu/uazapi
+chmod -R 777 /home/ubuntu/uazapi
 ```
 ## Deploy
 
 12- rodar a aplicação dentro da pasta uazapi (cd uazapi)
 ```bash
-  npm run start
+npm run start
 ```
 Control+C para fechar a aplicação
 
 13- Rodar aplicação via pm2, para que mesmo que o sistema dê reboot, continue rodando
 ```bash
-  pm2 start npm run start
+pm2 start npm run start
 ```
 ```bash
-  pm2 startup
+pm2 startup
 ```
 ```bash
-  pm2 save
+pm2 save
 ```
 
 
 ```bash
-  npm run start
+npm run start
 ```
 
 
@@ -188,10 +188,10 @@ ttl: auto
 
 
 ```bash
-  snap install --classic certbot
+snap install --classic certbot
 ```
 ```bash
-  certbot certonly --standalone
+certbot certonly --standalone
 ```
 Não esqueça de alterar o .env para https e porta 443, e coloca o domínio em "DOMAIN".
 
@@ -199,7 +199,7 @@ Não esqueça de alterar o .env para https e porta 443, e coloca o domínio em "
 # Atualizar API
 
 ```bash
-  git pull
+git pull
 ```
 
 
