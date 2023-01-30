@@ -5,46 +5,8 @@ https://uazapi.bubbleapps.io/
 
 
 
-
-## Instalação Rápida
-
-para instalar automaticamente execute o comando abaixo, recomendo não usar a instalação rápida pois o script ainda não foi testado, pule para instalação passo a passo.
-
-```bash
-sudo su
-```
-
-```bash
-curl -sL https://raw.githubusercontent.com/uazapi/uazapi/master/install.sh | bash
-```
-
-O arquivo bash irá :
-
-1- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
-
-2- Fazer update do sistema;
-
-3- Setar o timezone;
-
-4- instalar o node;
-
-5- instalar o NPM;
-
-6- instalar o pm2;
-
-7- instalar docker;
-
-8- clonar esse repositório;
-
-9- instalar dependencias do repositório;
-
-10- instalar mongodb via docker
     
 ## Instalação passo a passo
-
-Se você não fez a instalação automática, te ensino a fazer passo a passo, para customizar algum passo.
-
-Se você fez atualização automática, pule para o passo 11.
 
 
 1- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
