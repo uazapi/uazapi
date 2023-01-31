@@ -131,10 +131,6 @@ pm2 save
 ```
 
 
-```bash
-npm run start
-```
-
 
 # SSL - subdomínio
 
