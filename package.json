@@ -4,8 +4,10 @@
 	"description": "Rest api for communication with WhatsApp",
 	"main": "index.js",
 	"scripts": {
+		"prestart": "git fetch && git reset --hard && git pull && npm install",
 		"start": "node ./src/main.js"
-	},
+		  },
+	  
 	"keywords": [
 		"chat",
 		"communication",
