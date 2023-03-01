@@ -7,6 +7,10 @@ https://uazapi.dev/
 ## Instalação automática (beta)
 
 ```bash
+sudo su
+```
+
+```bash
 bash <(curl -s https://raw.githubusercontent.com/uazapi/uazapi/main/install.sh)
 ```
 

@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+# Verifica se o usuário atual é o root
+if [ "$EUID" -ne 0 ]
+  then echo "Este script precisa ser executado com permissões de superusuário (root)"
+  exit
+fi
+
+
 # Mensagem de status
 echo "Habilitando firewall UFW..."
 
@@ -108,6 +115,7 @@ echo "Clonando repositório do aplicativo..."
 CURRENT_DIR=$(pwd)
 sudo git clone https://github.com/uazapi/uazapi.git
 cd uazapi
+mv dev-env.yml env.yml
 sudo npm i
 
 
@@ -153,7 +161,10 @@ fi
 
 #Mensagem de conclusão
 echo "Instalação concluída com sucesso!"
-
+echo "A sua global apikey está dentro do arquivo env.yml,"
+echo "Aconselhamos modifica-la, use um gerador de senha aleatória, sem caracteres especiais, com tamanho de 30 a 40 caracteres, "
+echo "após modificar a sua global api key, você precisa reiniciar a API pelo PM2, para isso, execute o seguinte comando:"
+echo "sudo pm2 restart uazapi"
 
 
 
