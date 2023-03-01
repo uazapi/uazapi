@@ -53,108 +53,131 @@ sudo timedatectl set-timezone America/Sao_Paulo
 # Mensagem de status
 echo "Instalando Node.js e NPM..."
 
+# Verifica se o Node.js e NPM já foram instalados
+if ! command -v node &> /dev/null; then
+    # Instala o Node.js e o gerenciador de pacotes NPM
+    curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+    sudo apt-get install -y nodejs
 
-# Instala o Node.js e o gerenciador de pacotes NPM
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-
-# Verifica se o comando anterior foi executado corretamente
-if [ $? -ne 0 ]; then
-  echo "Erro ao instalar Node.js e NPM"
-  exit 1
+    # Verifica se o comando anterior foi executado corretamente
+    if [ $? -ne 0 ]; then
+        echo "Erro ao instalar Node.js e NPM"
+        exit 1
+    fi
+else
+    echo "Node.js e NPM já estão instalados, pulando para próxima etapa"
 fi
-
 
 # Mensagem de status
 echo "Instalando a última versão do NPM..."
 
+# Verifica se o NPM já foi instalado
+if ! command -v npm &> /dev/null; then
+    # Instala a última versão do NPM
+    sudo npm install -g npm@latest
 
-# Instala a última versão do NPM
-sudo npm install -g npm@latest
-
+    # Verifica se o comando anterior foi executado corretamente
+    if [ $? -ne 0 ]; then
+        echo "Erro ao instalar NPM"
+        exit 1
+    fi
+else
+    echo "NPM já está instalado, pulando para próxima etapa"
+fi
 
 # Mensagem de status
 echo "Instalando PM2..."
 
+# Verifica se o PM2 já foi instalado
+if ! command -v pm2 &> /dev/null; then
+    # Instala o PM2 para gerenciar o aplicativo Node.js
+    sudo npm i -g pm2
 
-# Instala o PM2 para gerenciar o aplicativo Node.js
-sudo npm i -g pm2
-
-
-# Verifica se o comando anterior foi executado corretamente
-if [ $? -ne 0 ]; then
-  echo "Erro ao instalar PM2"
-  exit 1
+    # Verifica se o comando anterior foi executado corretamente
+    if [ $? -ne 0 ]; then
+        echo "Erro ao instalar PM2"
+        exit 1
+    fi
+else
+    echo "PM2 já está instalado, pulando para próxima etapa"
 fi
-
 
 # Mensagem de status
 echo "Instalando Docker e Docker Compose..."
 
+# Verifica se o Docker e Docker Compose já foram instalados
+if ! command -v docker &> /dev/null || ! command -v docker-compose &> /dev/null; then
+    # Instala o Docker e o Docker Compose
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker ${USER}
+    sudo apt-get install -y docker-compose
 
-# Instala o Docker e o Docker Compose
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker ${USER}
-sudo apt-get install -y docker-compose
-
-
-# Verifica se o comando anterior foi executado corretamente
-if [ $? -ne 0 ]; then
-  echo "Erro ao instalar Docker e Docker Compose"
-  exit 1
+    # Verifica se o comando anterior foi executado corretamente
+    if [ $? -ne 0 ]; then
+        echo "Erro ao instalar Docker e Docker Compose"
+        exit 1
+    fi
+else
+    echo "Docker e Docker Compose já estão instalados, pulando para próxima etapa"
 fi
 
 
 # Mensagem de status
 echo "Clonando repositório do aplicativo..."
 
+# Verifica se o repositório já foi clonado
+if [ ! -d "uazapi" ]; then
+  sudo git clone https://github.com/uazapi/uazapi.git
+  cd uazapi
+  mv dev-env.yml env.yml
 
-# Clona o repositório do aplicativo e inicia o Docker Compose
-CURRENT_DIR=$(pwd)
-sudo git clone https://github.com/uazapi/uazapi.git
-cd uazapi
-mv dev-env.yml env.yml
+  # Verifica se o comando anterior foi executado corretamente
+  if [ $? -ne 0 ]; then
+    echo "Erro ao clonar repositório do aplicativo"
+    exit 1
+  fi
+else
+  echo "Repositório do aplicativo já clonado, pulando etapa..."
+fi
 
-
-# Verifica se o comando anterior foi executado corretamente
-if [ $? -ne 0 ]; then
-  echo "Erro ao clonar repositório do aplicativo"
-  exit 1
+# Verifica se o container "mongodb" já está em execução
+if sudo docker ps --filter "name=mongodb" | grep -q mongodb; then
+  echo "O container mongodb já está em execução"
+else
+  # Mensagem de status
+  echo "Iniciando Docker Compose..."
+  
+  sudo docker-compose up -d
+  
+  # Verifica se o comando anterior foi executado corretamente
+  if [ $? -ne 0 ]; then
+    echo "Erro ao iniciar Docker Compose"
+    exit 1
+  fi
 fi
 
 
 # Mensagem de status
-echo "Iniciando Docker Compose..."
-
-
-sudo docker-compose up -d
-
-
-#Verifica se o comando anterior foi executado corretamente
-if [ $? -ne 0 ]; then
-echo "Erro ao iniciar Docker Compose"
-exit 1
-fi
-
-
-#Mensagem de status
 echo "Configurando PM2..."
 
-
-#Permite que o usuário atual gerencie o aplicativo com PM2
+# Permite que o usuário atual gerencie o aplicativo com PM2
 CURRENT_DIR=$(pwd)
 sudo chown -R $USER:$(id -gn $USER) $CURRENT_DIR/uazapi
-sudo pm2 start 'npm run start' --name uazapi
-sudo pm2 startup
-sudo pm2 save
 
+# Verifica se o processo uazapi já está em execução no PM2
+if sudo pm2 list | grep -q uazapi; then
+  echo "O processo uazapi já está em execução no PM2"
+else
+  sudo pm2 start 'npm run start' --name uazapi
+  sudo pm2 startup
+  sudo pm2 save
 
-#Verifica se o comando anterior foi executado corretamente
-if [ $? -ne 0 ]; then
-echo "Erro ao configurar PM2"
-exit 1
+  # Verifica se o comando anterior foi executado corretamente
+  if [ $? -ne 0 ]; then
+    echo "Erro ao configurar PM2"
+    exit 1
+  fi
 fi
 
 
