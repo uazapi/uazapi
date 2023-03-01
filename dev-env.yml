@@ -9,30 +9,51 @@
 #  TODAS AS CONFIGURAÇÕES DEFINIDAS NESTE ARQUIVO SÃO APLICADAS A TODAS AS INSTÂNCIAS.
 #  MUDE O NOME DESTE ARQUIVO PARA env.yml
 #
-#  ALL SETTINGS DEFINED IN THIS FILE ARE APPLIED TO ALL INSTANCES.
-#  RENAME THIS FILE TO env.yml
 
 
 
-# PT_BR:  Uso armazenamentos de dados local
-# Use local data stores
+
+
+# Define um tipo de autenticação para a API
+AUTHENTICATION:
+  TYPE: apikey # or jwt
+  # PT_BR: Defina uma apikey global para acessar todas as instâncias
+  API_KEY:
+    KEY: trocar_globalkey_uf9y3WXOK2nc9MJm1W6o82dS9fmbi0
+  JWT:
+    EXPIRIN_IN: 3600 # seconds - 3600s === 1h | zero (0) - never expires
+    SECRET: Y5W9YVE39Y09q2Ca4
+
+
+# Servidor
+
+SERVER:
+  TYPE: http # https
+  PORT: 8080 # 443
+
+SSL_CONF:
+  PRIVKEY: /etc/letsencrypt/live/<domain>/privkey.pem
+  FULLCHAIN: /etc/letsencrypt/live/<domain>/fullchain.pem
+
+# Uso armazenamentos de dados local
 STORE:
   CLEANING_INTERVAL: 7200 # seconds === 2h
   MESSAGE: false
   CONTACTS: false
   CHATS: false
 
-# PT_BR: Salvar dados no mongodb
-# Save data to mongodb
+# Salvar dados no mongodb
+# não altere os dados de conexão do mongodb, esses dados são os mesmo configurados para subir o mongodb via docker
 DATABASE:
   ENABLED: true
   CONNECTION:
-    HOST: 127.0.0.1
-    PORT: 26712
-    USER: root
-    PASSWORD: b5ti18bDi7NCENgiLctv
+    HOST: 127.0.0.1                  #não modificar
+    PORT: 26712                      #não modificar
+    USER: root                       #não modificar
+    PASSWORD: b5ti18bDi7NCENgiLctv   #não modificar
     DB_PREFIX_NAME: uazapi
   SAVE_DATA:
+  # selecione o que você quer salvar no mongodb
     INSTANCE: true
     OLD_MESSAGE: false
     NEW_MESSAGE: true
@@ -41,24 +62,20 @@ DATABASE:
     CHATS: true
 
 
-# Webhook Settings
-# PT_BR:  Configurações de webhook
+#Configurações de webhook
 WEBHOOK:
-  # Define a global webhook that will listen for events from all instances
-  # PT_BR:  Defina um webhook global que escutará eventos de todas as instâncias
+   #Defina um webhook global que escutará eventos de todas as instâncias
   GLOBAL:
     URL: <url>
     ENABLED: false
-    # PT_BR:  Mapeia automaticamente os caminhos do webhook - função em teste, deixe desabilitado
-    # Automatically maps webhook paths - function under test, leave it disabled
+    # Mapeia automaticamente os caminhos do webhook - função em teste, deixe desabilitado
   WEBHOOK_MAP: false
-      # Set the events you want to hear
-      # PT_BR:  Defina os eventos que deseja ouvir
+      # Defina os eventos que deseja ouvir
   EVENTS:
     QRCODE_UPDATED: true
     MESSAGES_SET: false
     MESSAGES_UPSERT: true
-    MESSAGES_UPDATE: false # know if the person received or read the message 
+    MESSAGES_UPDATE: false 
     SEND_MESSAGE: false
     CONTACTS_SET: false
     CONTACTS_UPSERT: false
@@ -87,30 +104,7 @@ QRCODE:
 
 DEL_INSTANCE: 5 # 5 min or false
 
-# Defines an authentication type for the api
-# PT_BR: Define um tipo de autenticação para a API
-AUTHENTICATION:
-  TYPE: apikey # or apikey
-  # Define a global apikey to access all instances
-  # PT_BR: Defina um apikey global para acessar todas as instâncias
-  API_KEY:
-    KEY: trocar_globalkey_uf9y3WXOK2nc9MJm1W6o82dS9fmbi0
-  JWT:
-    EXPIRIN_IN: 3600 # seconds - 3600s === 1h | zero (0) - never expires
-    SECRET: Y5W9YVE39Y09q2Ca4
 
-
-
-
-# Misc
-
-SERVER:
-  TYPE: http # https
-  PORT: 8080 # 443
-
-SSL_CONF:
-  PRIVKEY: /etc/letsencrypt/live/<domain>/privkey.pem
-  FULLCHAIN: /etc/letsencrypt/live/<domain>/fullchain.pem
 
 LOG:
   LEVEL:
