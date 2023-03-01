@@ -163,7 +163,7 @@ echo "Instalação concluída com sucesso!"
 echo "A sua global apikey está dentro do arquivo env.yml,"
 echo "Aconselhamos modifica-la, use um gerador de senha aleatória, sem caracteres especiais, com tamanho de 30 a 40 caracteres, "
 echo "após modificar a sua global api key, você precisa reiniciar a API pelo PM2, para isso, execute o seguinte comando:"
-echo "sudo pm2 restart uazapi"
+echo "pm2 restart uazapi"
 
 
 
