@@ -116,7 +116,6 @@ CURRENT_DIR=$(pwd)
 sudo git clone https://github.com/uazapi/uazapi.git
 cd uazapi
 mv dev-env.yml env.yml
-sudo npm i
 
 
 # Verifica se o comando anterior foi executado corretamente
