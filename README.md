@@ -1,9 +1,14 @@
 
 # uazapi
 
-https://uazapi.bubbleapps.io/
+https://uazapi.dev/
 
 
+## Instalação automática (beta)
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/uazapi/uazapi/main/install.sh)
+```
 
     
 ## Instalação passo a passo
@@ -107,7 +112,7 @@ npm i
 ```bash
 docker-compose up -d
 ```
-11- renomear arquivo .env-rename para .env e editá-lo conforme suas necessidades, principalmente trocando a senha global, caso dê erro na hora de editar o arquivo, execute o comando:
+11- renomear arquivo dev-env.yml para env.yml e editá-lo conforme suas necessidades, principalmente trocando a senha global, caso dê erro na hora de editar o arquivo, execute o comando:
 ```bash
 chmod -R 777 /home/ubuntu/uazapi
 ```
@@ -121,7 +126,7 @@ Control+C para fechar a aplicação
 
 13- Rodar aplicação via pm2, para que mesmo que o sistema dê reboot, continue rodando
 ```bash
-pm2 start 'npm run start'
+pm2 start 'npm run start' --name uazapi
 ```
 ```bash
 pm2 startup
@@ -151,13 +156,13 @@ snap install --classic certbot
 ```bash
 certbot certonly --standalone
 ```
-Não esqueça de alterar o .env para https e porta 443, e coloca o domínio em "DOMAIN".
+Não esqueça de alterar o env.yml para https e porta 443, e coloca o domínio na parte indicada.
 
 
-# Atualizar API
+# Forçar atualização da API e dependências
 
 ```bash
-git pull
+git fetch && git reset --hard && git pull && npm install --unsafe-perm
 ```
 
 
