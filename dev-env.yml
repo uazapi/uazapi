@@ -31,8 +31,8 @@ SERVER:
   PORT: 8080 # 443
 
 SSL_CONF:
-  PRIVKEY: /etc/letsencrypt/live/<domain>/privkey.pem
-  FULLCHAIN: /etc/letsencrypt/live/<domain>/fullchain.pem
+  PRIVKEY: /etc/letsencrypt/live/<sub.dominio.com>/privkey.pem
+  FULLCHAIN: /etc/letsencrypt/live/<sub.dominio.com>/fullchain.pem
 
 # Uso armazenamentos de dados local
 STORE:
