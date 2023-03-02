@@ -51,55 +51,47 @@ sudo timedatectl set-timezone America/Sao_Paulo
 
 
 # Mensagem de status
-echo "Instalando Node.js e NPM..."
+echo "Verificando se o Node.js está instalado..."
 
-# Verifica se o Node.js e NPM já foram instalados
-if ! command -v node &> /dev/null; then
+# Verifica se o Node.js já foi instalado e se está na versão 16.x.x
+if ! command -v node &> /dev/null || [[ $(node -v) != v16* ]]; then
     # Instala o Node.js e o gerenciador de pacotes NPM
     curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
     # Verifica se o comando anterior foi executado corretamente
     if [ $? -ne 0 ]; then
-        echo "Erro ao instalar Node.js e NPM"
+        echo "Erro ao instalar Node.js"
         exit 1
     fi
 else
-    echo "Node.js e NPM já estão instalados, pulando para próxima etapa"
+    echo "Node.js já está instalado na versão 16.x.x"
 fi
 
 # Mensagem de status
 echo "Instalando a última versão do NPM..."
 
-# Verifica se o NPM já foi instalado
-if ! command -v npm &> /dev/null; then
-    # Instala a última versão do NPM
-    sudo npm install -g npm@latest
+# Instala a última versão do NPM
+sudo npm install -g npm@latest
 
-    # Verifica se o comando anterior foi executado corretamente
-    if [ $? -ne 0 ]; then
+# Verifica se o comando anterior foi executado corretamente
+if [ $? -ne 0 ]; then
         echo "Erro ao instalar NPM"
         exit 1
-    fi
-else
-    echo "NPM já está instalado, pulando para próxima etapa"
 fi
+
+
 
 # Mensagem de status
 echo "Instalando PM2..."
 
-# Verifica se o PM2 já foi instalado
-if ! command -v pm2 &> /dev/null; then
-    # Instala o PM2 para gerenciar o aplicativo Node.js
-    sudo npm i -g pm2
+# Instala o PM2 para gerenciar o aplicativo Node.js
+sudo npm i -g pm2
 
-    # Verifica se o comando anterior foi executado corretamente
-    if [ $? -ne 0 ]; then
-        echo "Erro ao instalar PM2"
-        exit 1
-    fi
-else
-    echo "PM2 já está instalado, pulando para próxima etapa"
+# Verifica se o comando anterior foi executado corretamente
+if [ $? -ne 0 ]; then
+    echo "Erro ao instalar PM2"
+    exit 1
 fi
 
 # Mensagem de status

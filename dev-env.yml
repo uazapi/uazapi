@@ -26,7 +26,6 @@ AUTHENTICATION:
 
 
 # Servidor
-
 SERVER:
   TYPE: http # https
   PORT: 8080 # 443
