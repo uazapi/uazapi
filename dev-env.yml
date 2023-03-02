@@ -6,8 +6,6 @@
 # ╚██████╔╝██║░░██║███████╗██║░░██║██║░░░░░██║
 # ░╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝
 #
-#  TODAS AS CONFIGURAÇÕES DEFINIDAS NESTE ARQUIVO SÃO APLICADAS A TODAS AS INSTÂNCIAS.
-#  MUDE O NOME DESTE ARQUIVO PARA env.yml
 #
 
 
@@ -34,15 +32,11 @@ SSL_CONF:
   PRIVKEY: /etc/letsencrypt/live/<sub.dominio.com>/privkey.pem
   FULLCHAIN: /etc/letsencrypt/live/<sub.dominio.com>/fullchain.pem
 
-# Uso armazenamentos de dados local
-STORE:
-  CLEANING_INTERVAL: 7200 # seconds === 2h
-  MESSAGE: false
-  CONTACTS: false
-  CHATS: false
+
 
 # Salvar dados no mongodb
-# não altere os dados de conexão do mongodb, esses dados são os mesmo configurados para subir o mongodb via docker
+# não altere os dados de conexão do mongodb, 
+# esses dados são os mesmo configurados para subir o mongodb via docker, feitos na instalação da API
 DATABASE:
   ENABLED: true
   CONNECTION:
@@ -51,8 +45,9 @@ DATABASE:
     USER: root                       #não modificar
     PASSWORD: b5ti18bDi7NCENgiLctv   #não modificar
     DB_PREFIX_NAME: uazapi
-  SAVE_DATA:
+  
   # selecione o que você quer salvar no mongodb
+  SAVE_DATA:
     INSTANCE: true
     OLD_MESSAGE: false
     NEW_MESSAGE: true
@@ -60,8 +55,52 @@ DATABASE:
     CONTACTS: true
     CHATS: true
 
+# Nome que será exibido na conexão do smartphone
+CONFIG_SESSION_PHONE:
+  CLIENT: uazapi
+  NAME: Chrome # firefox | edge | opera | safari
+
+# Defina o limite de vezes que será exibido o qrcode
+QRCODE:
+  LIMIT: 6
+
+DEL_INSTANCE: 5 # 5 min or false
+
+
+LOG:
+  LEVEL:
+    - ERROR
+    - WARN
+    - DEBUG
+    - INFO
+    - LOG
+    - VERBOSE
+    - DARK
+  COLOR: true
+
+CORS:
+  ORIGIN:
+    - '*'
+    # - yourdomain.com
+  METHODS:
+    - POST
+    - GET
+    - PUT
+    - DELETE
+  CREDENTIALS: true
+  
+  # Uso armazenamentos de dados local - recomendamos deixar desativado e usar o mongodb
+STORE:
+  CLEANING_INTERVAL: 7200 # seconds === 2h
+  MESSAGE: false
+  CONTACTS: false
+  CHATS: false
+
 
 #Configurações de webhook
+
+# não há necessidade de alterar as configurações de webhook, 
+# pois é possível alterar pelo endpoint de setar webhook
 WEBHOOK:
    #Defina um webhook global que escutará eventos de todas as instâncias
   GLOBAL:
@@ -89,41 +128,3 @@ WEBHOOK:
     GROUP_PARTICIPANTS_UPDATE: true
     CONNECTION_UPDATE: true
     NEW_JWT_TOKEN: true
-
-  # Name that will be displayed on smartphone connection
-  # PT_BR:  Nome que será exibido na conexão do smartphone
-CONFIG_SESSION_PHONE:
-  CLIENT: uazapi
-  NAME: Chrome # firefox | edge | opera | safari
-
-# PT_BR: Defina o limite de vezes que será exibido o qrcode
-# Define the limit of times the qrcode will be displayed
-QRCODE:
-  LIMIT: 6
-
-DEL_INSTANCE: 5 # 5 min or false
-
-
-
-LOG:
-  LEVEL:
-    - ERROR
-    - WARN
-    - DEBUG
-    - INFO
-    - LOG
-    - VERBOSE
-    - DARK
-  COLOR: true
-
-CORS:
-  ORIGIN:
-    - '*'
-    # - yourdomain.com
-  METHODS:
-    - POST
-    - GET
-    - PUT
-    - DELETE
-  CREDENTIALS: true
-  
