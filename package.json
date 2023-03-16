@@ -24,7 +24,7 @@
 		"bot"
 	],
 	"dependencies": {
-		"@adiwajshing/baileys": "github:adiwajshing/baileys#74bd2f5",
+		"@adiwajshing/baileys": "github:adiwajshing/baileys#a4ecac7",
 		"@hapi/boom": "^10.0.0",
 		"axios": "^1.3.2",
 		"class-validator": "^0.13.2",
