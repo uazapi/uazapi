@@ -1,28 +1,12 @@
 {
 	"name": "uazapi",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Rest api for communication with WhatsApp",
 	"main": "index.js",
 	"scripts": {
 		"prestart": "git fetch && git reset --hard && git pull && npm install --unsafe-perm",
 		"start": "node ./src/main.js"
 	},
-	"keywords": [
-		"chat",
-		"communication",
-		"message",
-		"send message",
-		"whatsapp",
-		"js-whatsapp",
-		"whatsapp-api",
-		"whatsapp-web",
-		"whatsapp",
-		"whatsapp-chat",
-		"whatsapp-group",
-		"automation",
-		"multi-device",
-		"bot"
-	],
 	"dependencies": {
 		"@adiwajshing/baileys": "github:adiwajshing/baileys#a4ecac7",
 		"@hapi/boom": "^10.0.0",
