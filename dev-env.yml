@@ -106,8 +106,6 @@ WEBHOOK:
   GLOBAL:
     URL: <url>
     ENABLED: false
-    # Mapeia automaticamente os caminhos do webhook - função em teste, deixe desabilitado
-  WEBHOOK_MAP: false
       # Defina os eventos que deseja ouvir
   EVENTS:
     QRCODE_UPDATED: true
