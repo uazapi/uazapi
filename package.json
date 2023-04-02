@@ -8,7 +8,7 @@
 		"start": "node ./src/main.js"
 	},
 	"dependencies": {
-		"@adiwajshing/baileys": "github:adiwajshing/baileys#a4ecac7",
+		"@adiwajshing/baileys": "github:Auties00/Baileys#28be45a",
 		"@hapi/boom": "^10.0.0",
 		"axios": "^1.3.2",
 		"class-validator": "^0.13.2",
