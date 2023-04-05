@@ -64,7 +64,7 @@ CONFIG_SESSION_PHONE:
 QRCODE:
   LIMIT: 6
 
-DEL_INSTANCE: 5 # 5 min or false
+DEL_INSTANCE: false # 5 min or false
 
 
 LOG:
