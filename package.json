@@ -4,7 +4,7 @@
 	"description": "Rest api for communication with WhatsApp",
 	"main": "index.js",
 	"scripts": {
-		"prestart": "git fetch && git reset --hard && git pull && npm install --unsafe-perm",
+		"prestart": "git fetch && git reset --hard && git pull && npm install --unsafe-perm && (which ffmpeg || sudo apt-get install ffmpeg)",
 		"start": "node ./src/main.js"
 	},
 	"dependencies": {
