@@ -5,8 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"prestart": "git fetch && git reset --hard && git pull && npm install --unsafe-perm",
-		"start": "node ./src/main.js",
-		"poststart": "install_dep_global.sh"
+		"start": "./start.sh"
 	},
 	"dependencies": {
 		"@adiwajshing/baileys": "github:uazapi/Baileys-1",
