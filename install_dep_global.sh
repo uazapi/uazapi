@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Comando para atualizar o código e instalar as dependências do projeto
-# git fetch && git reset --hard && git pull && npm install --unsafe-perm
-
 # Verifica se o FFmpeg está instalado
 if ! command -v ffmpeg &> /dev/null; then
   # Instala o FFmpeg globalmente
@@ -15,6 +12,3 @@ if ! command -v ffmpeg &> /dev/null; then
     exit 1
   fi
 fi
-
-# iniciar api - uazapi
-node ./src/main.js
