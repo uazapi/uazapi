@@ -12,6 +12,3 @@ if ! command -v ffmpeg &> /dev/null; then
     exit 1
   fi
 fi
-
-# Comando para atualizar o código e instalar as dependências do projeto
-git fetch && git reset --hard && git pull && npm install --unsafe-perm
