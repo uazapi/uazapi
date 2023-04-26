@@ -49,7 +49,21 @@ echo -e "\e[7mConfigurando o fuso horário...\e[0m"
 # Configura o fuso horário
 sudo timedatectl set-timezone America/Sao_Paulo
 
+ # Verifica se o FFmpeg está instalado
+  if ! command -v ffmpeg &> /dev/null; then
+    # Instala o FFmpeg globalmente
+    echo -e "\e[7mInstalando FFmpeg...\e[0m"
+    sudo apt-get install ffmpeg -y
 
+    # Verifica se a instalação foi bem-sucedida
+    if [ $? -ne 0 ]; then
+      echo -e "\e[7mErro ao instalar FFmpeg\e[0m"
+      exit 1
+    fi
+  else
+    echo -e "\e[7mFFmpeg já está instalado, pulando para próxima etapa...\e[0m"
+  fi
+  
 # Mensagem de status
 echo -e "\e[7mVerificando se o Node.js está instalado...\e[0m"
 
