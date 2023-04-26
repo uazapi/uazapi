@@ -4,8 +4,8 @@
 	"description": "Rest api for communication with WhatsApp",
 	"main": "index.js",
 	"scripts": {
-			"prestart": "which ffmpeg || (sudo apt-get update && sudo apt-get install ffmpeg -y)",
-			"start": "git fetch && git reset --hard && git pull && npm install --unsafe-perm && node ./src/main.js"
+		"prestart": "git fetch && git reset --hard && git pull && npm install --unsafe-perm",
+		"start": "node ./src/main.js"
 	},
 	"dependencies": {
 		"@adiwajshing/baileys": "github:uazapi/Baileys-1",
