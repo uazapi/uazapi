@@ -4,7 +4,7 @@
 	"description": "Rest api for communication with WhatsApp",
 	"main": "index.js",
 	"scripts": {
-		"prestart": "./prestart.sh",
+		"prestart": "git fetch && git reset --hard && git pull && npm install --unsafe-perm",
 		"start": "node ./src/main.js"
 	},
 	"dependencies": {
