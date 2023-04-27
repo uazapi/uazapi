@@ -169,5 +169,8 @@ Não esqueça de alterar o env.yml para https e porta 443, e coloca o domínio n
 git fetch && git reset --hard && git pull && npm install --unsafe-perm
 ```
 
+# Instalar dependência especial para ajustar envio de audio
 
-
+```bash
+sudo apt-get install ffmpeg -y
+```
