@@ -9,17 +9,18 @@
 #
 
 
+# o sinal de hashtag (#) significa que é um comentário, 
+# quando você abre esse arquivo em um visualizador específico de código, como o vs code ou o notepad++ as cores ficam diferente, facilitando.
 
 
-
-# Define um tipo de autenticação para a API
+# Define um tipo de autenticação para a API, recomendamos deixar apikey por ser mais simples
 AUTHENTICATION:
   TYPE: apikey # or jwt
-  # PT_BR: Defina uma apikey global para acessar todas as instâncias
+  # PT_BR: Defina uma senha global (apikey global) para acessar todas as instâncias
   API_KEY:
     KEY: trocar_globalkey_uf9y3WXOK2nc9MJm1W6o82dS9fmbi0
   JWT:
-    EXPIRIN_IN: 3600 # seconds - 3600s === 1h | zero (0) - never expires
+    EXPIRIN_IN: 3600 # segundos - 3600s === 1h | zero (0) - nunca expira
     SECRET: Y5W9YVE39Y09q2Ca4
 
 
@@ -40,16 +41,16 @@ SSL_CONF:
 DATABASE:
   ENABLED: true
   CONNECTION:
-    HOST: 127.0.0.1                  #não modificar
-    PORT: 26712                      #não modificar
-    USER: root                       #não modificar
-    PASSWORD: b5ti18bDi7NCENgiLctv   #não modificar
+    HOST: 127.0.0.1                    #não modificar
+    PORT: 26712                        #não modificar
+    USER: root                         #não modificar
+    PASSWORD: b5ti18bDi7NCENgiLctv     #não modificar
     DB_PREFIX_NAME: uazapi
   
   # selecione o que você quer salvar no mongodb
   SAVE_DATA:
     INSTANCE: true
-    OLD_MESSAGE: false
+    OLD_MESSAGE: false      # deixe como false, e caso queira alterar, altere na chamada de criar instancia
     NEW_MESSAGE: true
     MESSAGE_UPDATE: true
     CONTACTS: true
@@ -64,7 +65,7 @@ CONFIG_SESSION_PHONE:
 QRCODE:
   LIMIT: 6
 
-DEL_INSTANCE: false # 5 min or false
+DEL_INSTANCE: 5 # 5 min or false
 
 
 LOG:
@@ -99,30 +100,31 @@ STORE:
 
 #Configurações de webhook
 
-# não há necessidade de alterar as configurações de webhook, 
-# pois é possível alterar pelo endpoint de setar webhook
-WEBHOOK:
-   #Defina um webhook global que escutará eventos de todas as instâncias
-  GLOBAL:
+WEBHOOK: 
+  
+  GLOBAL:                           #  Defina um webhook global que escutará eventos de todas as instâncias
     URL: <url>
     ENABLED: false
-      # Defina os eventos que deseja ouvir
-  EVENTS:
-    QRCODE_UPDATED: true
-    MESSAGES_SET: false
-    MESSAGES_UPSERT: true
-    MESSAGES_UPDATE: false 
-    SEND_MESSAGE: false
-    CONTACTS_SET: false
-    CONTACTS_UPSERT: false
-    CONTACTS_UPDATE: false
-    PRESENCE_UPDATE: false
-    CHATS_SET: false
-    CHATS_UPSERT: false
-    CHATS_UPDATE: false
-    CHATS_DELETE: false
-    GROUPS_UPSERT: true
-    GROUP_UPDATE: true
-    GROUP_PARTICIPANTS_UPDATE: true
-    CONNECTION_UPDATE: true
-    NEW_JWT_TOKEN: true
+  
+  WEBHOOK_MAP: false                # modifica a url do webhook conforme exemplo abaixo  
+  
+  EVENTS:                           # Defina os eventos que deseja ouvir pelo webhook global
+    CONNECTION_UPDATE: true         #  /wa-connection-update     se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-connection-update
+    STATUS_INSTANCE: true           #  /wa-connection-update     se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-connection-update
+    QRCODE_UPDATED: true            #  /wa-qrcode                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-qrcode 
+    MESSAGES_SET: false             #  /wa-message               se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message 
+    MESSAGES_UPSERT: true           #  /wa-message               se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message
+    SEND_MESSAGE: false             #  /wa-message               se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message
+    MESSAGES_UPDATE: false          #  /wa-message-update        se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message-update
+    CONTACTS_SET: false             #  /wa-contacts              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-contacts  
+    CONTACTS_UPSERT: false          #  /wa-contacts              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-contacts
+    CONTACTS_UPDATE: false          #  /wa-contacts              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-contacts
+    PRESENCE_UPDATE: false          #  /wa-presence              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-presence
+    CHATS_SET: false                #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats
+    CHATS_UPSERT: false             #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats 
+    CHATS_UPDATE: false             #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats 
+    CHATS_DELETE: false             #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats 
+    GROUPS_UPSERT: true             #  /wa-groups                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-groups
+    GROUP_UPDATE: true              #  /wa-groups                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-groups
+    GROUP_PARTICIPANTS_UPDATE: true #  /wa-groups                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-groups
+    NEW_JWT_TOKEN: true   
