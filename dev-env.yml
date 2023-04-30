@@ -16,7 +16,8 @@
 # Define um tipo de autenticação para a API, recomendamos deixar apikey por ser mais simples
 AUTHENTICATION:
   TYPE: apikey # or jwt
-  # PT_BR: Defina uma senha global (apikey global) para acessar todas as instâncias
+# Defina uma senha global (apikey global) para acessar todas as instâncias
+# recomendamos usar um gerador de senha, e colocar 50 caracteres sem caractere especial (https://www.lastpass.com/pt/features/password-generator)
   API_KEY:
     KEY: trocar_globalkey_uf9y3WXOK2nc9MJm1W6o82dS9fmbi0
   JWT:
