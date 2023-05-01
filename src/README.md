@@ -6,12 +6,12 @@ https://uazapi.dev/
 
 ## Instalação automática
 
-Antes de executar o script, certifique-se de atualizar o sistema e instalar as dependências básicas executando o seguinte comando:
+Atualizar o sistema e reiniciar servidor:
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt install -y curl && reboot
 ```
-O comando acima irá atualizar e depois vai reiniciar o servidor, após  a reinicialização, execute o script:
+Após  a reinicialização, execute o script:
 
 ```bash
 sudo su
