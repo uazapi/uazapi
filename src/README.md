@@ -24,8 +24,13 @@ bash <(curl -s https://raw.githubusercontent.com/uazapi/uazapi/main/install.sh)
     
 ## Instalação passo a passo
 
+1- Fazer update do sistema;
 
-1- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
+```bash
+sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt install -y curl && reboot
+```
+
+2- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
 
 ```bash
 sudo su
@@ -47,12 +52,6 @@ ufw allow 8080/tcp
 
 ```bash
 ufw allow 443/tcp
-```
-
-2- Fazer update do sistema;
-
-```bash
-apt update && apt upgrade -y  && apt dist-upgrade -y
 ```
 
 3- Setar o timezone;
