@@ -76,7 +76,9 @@ CONFIG_SESSION_PHONE:
   CLIENT: uazapi
   NAME: Chrome # firefox | edge | opera | safari
 
-
+# Defina o limite de vezes que será exibido o qrcode
+QRCODE:
+  LIMIT: 6
 
 
 
