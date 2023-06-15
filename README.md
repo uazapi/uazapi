@@ -196,7 +196,7 @@ git fetch && git reset --hard && git pull && npm install --unsafe-perm
 sudo apt-get install ffmpeg -y
 ```
 
-# Instalar Redis para evitar erros nos envios de mensagens
+# Instalar Redis
 
 ```bash
 sudo apt-get install redis-server -y
