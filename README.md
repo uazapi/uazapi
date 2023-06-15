@@ -9,7 +9,8 @@ https://uazapi.dev/
 Atualizar o sistema e reiniciar servidor:
 
 ```bash
-sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt install -y curl && reboot
+sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt install -y curl && echo "y" | sudo ufw enable && sudo ufw allow 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 8080/tcp && sudo ufw allow 443/tcp && reboot
+
 ```
 Após  a reinicialização, execute o script:
 
