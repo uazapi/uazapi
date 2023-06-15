@@ -175,6 +175,16 @@ else
   fi
 fi
 
+# Instala as dependências do Node.js
+echo -e "\e[7mInstalando as dependências...\e[0m"
+sudo npm install
+
+# Verifica se o comando anterior foi executado corretamente
+if [ $? -ne 0 ]; then
+  echo -e "\e[7mErro ao instalar as dependências\e[0m"
+  exit 1
+fi
+
 # Verifica se o container "mongodb" já está em execução
 if sudo docker ps --filter "name=mongodb" | grep -q mongodb; then
   echo -e "\e[7mO container mongodb já está em execução\e[0m"
