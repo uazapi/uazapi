@@ -14,12 +14,6 @@
 
 
 
-# para desabilitar o auto update, marque como false, 
-# certifica-se que esteja rodando a api via pm2, pois após atualização a api é fechada, e o pm2 irá reinicia-la.
-AUTOUPDATE: true # false
-
-
-
 
 
 AUTHENTICATION:
