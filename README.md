@@ -175,7 +175,9 @@ desabilitar proxy
 
 ttl: auto
 
-
+```bash
+apt install snapd -y
+```
 ```bash
 snap install --classic certbot
 ```
