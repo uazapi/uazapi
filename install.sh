@@ -51,6 +51,9 @@ echo -e "\e[7mConfigurando o fuso horário...\e[0m"
 # Configura o fuso horário
 sudo timedatectl set-timezone America/Sao_Paulo
 
+# instalando certbot
+apt install snapd -y
+snap install --classic certbot
 
 # Verifica se o Redis já foi instalado
 if ! command -v redis-server &> /dev/null; then
