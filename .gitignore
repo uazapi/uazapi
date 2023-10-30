@@ -107,3 +107,6 @@ dist
 package-lock.json
 Dockerfile
 .dockerignore
+
+# downloads
+downloads/*
