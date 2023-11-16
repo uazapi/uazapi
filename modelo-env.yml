@@ -9,80 +9,37 @@
 #
 
 
-# o sinal de hashtag (#) significa que é um comentário, 
-# quando você abre esse arquivo em um visualizador específico de código, como o vs code ou o notepad++ as cores ficam diferente, facilitando.
-
-
-
-
-
-AUTHENTICATION:
-  TYPE: apikey 
 # Defina uma senha global (apikey global) para acessar todas as instâncias
 # recomendamos usar um gerador de senha, e colocar 50 caracteres sem caractere especial (https://www.lastpass.com/pt/features/password-generator)
+AUTHENTICATION:
+  TYPE: apikey 
   API_KEY:
-    KEY: trocar_globalkey_uf9y3WXOK2nc9MJm1W6o82dS9fmbi0
-
-
-
-
-
-
-
+    KEY: <gerar senha aleatória de 50 caracteres, sem caracter especial>
 
 
 
 
 # Servidor e sub/domínio
-
-# caso queria usar um sub/domínio altere a porta para 443 e troque abaixo o sub.dominio.com pelo seu sub/domínio
-# você precisa instalar o certificado SSL no seu servidor
-
-# Primeiro aponte seu sub/domínio para o ip do servidor/VPS:
-
-# Adicione na cloudflare o seu sub/domínio:
-# subtipo: A
-# colocar ip VPS
-# desabilitar proxy
-# ttl: auto
-
-# Depois execute os comandos e informe seu sub/domínio e e-mail quando for pedido:
-# sudo su
-# snap install --classic certbot
-# certbot certonly --standalone
-
-
 SERVER:
-  TYPE: http # https
-  PORT: 8080 # 443
-
+  TYPE: https # http
+  PORT: 443 # 8080
 
 SSL_CONF:
-  PRIVKEY: /etc/letsencrypt/live/sub.dominio.com/privkey.pem        # troque sub.dominio.com pelo seu sub/domínio
-  FULLCHAIN: /etc/letsencrypt/live/sub.dominio.com/fullchain.pem    # troque sub.dominio.com pelo seu sub/domínio
-
-
-
-
-
-
-
-
+  PRIVKEY: /etc/letsencrypt/live/<subdomain>.uazapi.dev/privkey.pem        # troque subdomain pelo seu sub/domínio
+  FULLCHAIN: /etc/letsencrypt/live/<subdomain>.uazapi.dev/fullchain.pem    # troque subdomain.com pelo seu sub/domínio
 
 
 
 # Nome que será exibido na conexão do smartphone
 CONFIG_SESSION_PHONE:
-  CLIENT: uazapi
+  CLIENT: <subdomain>
   NAME: Chrome # firefox | edge | opera | safari
+
+
 
 # Defina o limite de vezes que será exibido o qrcode
 QRCODE:
   LIMIT: 6
-
-
-
-
 
 
 
@@ -122,9 +79,9 @@ WEBHOOK:
 
 
 
-
-
-
+######################################
+#### NÃO ALTERAR DAQUI PRA BAIXO #####
+######################################
 
 
 # Salvar dados no banco de dados - mongodb
@@ -143,9 +100,6 @@ REDIS:
   ENABLED: true
   URI: redis://127.0.0.1:6379
   PREFIX_KEY: uazapi
-
-
-
 
 
 
