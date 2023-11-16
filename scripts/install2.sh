@@ -98,7 +98,7 @@ sudo npm install
 
 # Verifica e inicia Docker Compose
 if ! sudo docker ps --filter "name=mongodb" | grep -q mongodb; then
-    cd mongodb
+    cd scripts
     sudo docker-compose up -d
     cd ..
 else
@@ -107,14 +107,15 @@ fi
 
 # Configura PM2
 if ! sudo pm2 list | grep -q uazapi; then
-    CURRENT_DIR=$(pwd)
-    sudo chown -R $USER:$(id -gn $USER) $CURRENT_DIR/uazapi
-    sudo pm2 start 'npm run start' --name uazapi
+    sudo chown -R $USER:$(id -gn $USER) /root/uazapi
+    cd /root/uazapi
+    sudo pm2 start npm --name "uazapi" -- run start
     sudo pm2 startup
     sudo pm2 save
 else
     echo -e "\e[7mO processo uazapi já está em execução no PM2.\e[0m"
 fi
+
 
 # Mensagem de conclusão
 echo -e "\e[7mInstalação concluída com sucesso!\e[0m"
