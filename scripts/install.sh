@@ -90,10 +90,13 @@ fi
 # Mensagem de status
 echo -e "\e[7mVerificando se o Node.js está instalado...\e[0m"
 
-# Verifica se o Node.js já foi instalado e se está na versão 18.x.x
-if ! command -v node &> /dev/null || [[ $(node -v) != v18* ]]; then
-    # Instala o Node.js e o gerenciador de pacotes NPM
-    curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+# Verifica se o Node.js já foi instalado e se está na versão 20.x.x
+if ! command -v node &> /dev/null || [[ $(node -v) != v20* ]]; then
+    echo -e "\e[7mInstalando Node.js versão 20.x.x...\e[0m"
+    # Instala o Node.js versão 20
+    curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh
+    chmod 500 nsolid_setup_deb.sh
+    ./nsolid_setup_deb.sh 20
     sudo apt-get install -y nodejs
 
     # Verifica se o comando anterior foi executado corretamente
@@ -102,7 +105,7 @@ if ! command -v node &> /dev/null || [[ $(node -v) != v18* ]]; then
         exit 1
     fi
 else
-    echo -e "\e[7mNode.js já está instalado na versão 18.x.x\e[0m"
+    echo -e "\e[7mNode.js já está instalado na versão 20.x.x\e[0m"
 fi
 
 # Mensagem de status
@@ -195,7 +198,7 @@ else
   # Mensagem de status
   echo -e "\e[7mIniciando Docker Compose...\e[0m"
 
-  cd mongodb
+  cd scripts
   
   sudo docker-compose up -d
 

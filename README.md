@@ -19,7 +19,7 @@ sudo su
 ```
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/uazapi/uazapi/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/uazapi/uazapi/main/scripts/install.sh)
 ```
 
     
@@ -43,7 +43,7 @@ sudo apt-get install ffmpeg -y
 sudo apt-get install redis-server -y
 ```
 
-2.3- habilitar o firewall, e liberar as porta 22, 80, 8080 e 443;
+2.3- habilitar o firewall, e liberar as porta 22, 80 e 443;
 
 ```bash
 sudo su
@@ -59,9 +59,6 @@ ufw allow 22/tcp
 ufw allow 80/tcp
 ```
 
-```bash
-ufw allow 8080/tcp
-```
 
 ```bash
 ufw allow 443/tcp
@@ -82,7 +79,13 @@ sudo su
 4- instalar o node;
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+ curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh
+```
+```bash
+ chmod 500 nsolid_setup_deb.sh
+```
+```bash
+ ./nsolid_setup_deb.sh 20
 ```
 ```bash
 apt-get install -y nodejs
@@ -131,7 +134,7 @@ npm i
 10- instalar mongodb via docker 
 
 ```bash
-cd mongodb
+cd scripts
 ```
 
 ```bash
