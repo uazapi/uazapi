@@ -14,7 +14,7 @@
 AUTHENTICATION:
   TYPE: apikey 
   API_KEY:
-    KEY: <gerar senha aleatória de 50 caracteres, sem caracter especial>
+    KEY: <apikey>
 
 
 
@@ -25,8 +25,8 @@ SERVER:
   PORT: 443 # 8080
 
 SSL_CONF:
-  PRIVKEY: /etc/letsencrypt/live/<subdomain>.uazapi.dev/privkey.pem        # troque subdomain pelo seu sub/domínio
-  FULLCHAIN: /etc/letsencrypt/live/<subdomain>.uazapi.dev/fullchain.pem    # troque subdomain.com pelo seu sub/domínio
+  PRIVKEY: /etc/letsencrypt/live/<subdomain>/privkey.pem        # troque subdomain pelo seu sub/domínio
+  FULLCHAIN: /etc/letsencrypt/live/<subdomain>/fullchain.pem    # troque subdomain.com pelo seu sub/domínio
 
 
 
