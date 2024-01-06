@@ -16,7 +16,7 @@ echo -e "\e[7mHabilitando firewall UFW...\e[0m"
 echo "y" | sudo ufw enable
 sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
-sudo ufw allow 8080/tcp
+#sudo ufw allow 8080/tcp
 sudo ufw allow 443/tcp
 
 

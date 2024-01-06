@@ -30,50 +30,6 @@ SSL_CONF:
 
 
 
-# Nome que será exibido na conexão do smartphone
-CONFIG_SESSION_PHONE:
-  CLIENT: <subdomain>
-  NAME: Chrome # firefox | edge | opera | safari
-
-
-
-# Defina o limite de vezes que será exibido o qrcode
-QRCODE:
-  LIMIT: 6
-
-
-
-
-
-# Configurações de webhook GLOBAL
-# Defina um webhook global que escutará eventos de todas as instâncias
-WEBHOOK: 
-  GLOBAL:                           
-    URL: https://seulinkwebhook.com
-    ENABLED: false
-  
-  WEBHOOK_MAP: false                   # modifica a url do webhook conforme exemplo abaixo, no exemplo considera que seu webhook global é: https://seulinkwebhook.com
-  
-  EVENTS:                              # Defina os eventos que deseja ouvir pelo webhook global
-    CONNECTION_UPDATE: true            #  /wa-connection-update     se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-connection-update
-    STATUS_INSTANCE: true              #  /wa-connection-update     se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-connection-update
-    QRCODE_UPDATED: false              #  /wa-qrcode                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-qrcode 
-    MESSAGES_SET: false                #  /wa-message               se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message 
-    MESSAGES_UPSERT: false             #  /wa-message               se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message
-    SEND_MESSAGE: false                #  /wa-message               se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message
-    MESSAGES_UPDATE: false             #  /wa-message-update        se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-message-update
-    CONTACTS_SET: false                #  /wa-contacts              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-contacts  
-    CONTACTS_UPSERT: false             #  /wa-contacts              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-contacts
-    CONTACTS_UPDATE: false             #  /wa-contacts              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-contacts
-    PRESENCE_UPDATE: false             #  /wa-presence              se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-presence
-    CHATS_SET: false                   #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats
-    CHATS_UPSERT: false                #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats 
-    CHATS_UPDATE: false                #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats 
-    CHATS_DELETE: false                #  /wa-chats                 se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-chats 
-    GROUPS_UPSERT: false               #  /wa-groups                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-groups
-    GROUP_UPDATE: false                #  /wa-groups                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-groups
-    GROUP_PARTICIPANTS_UPDATE: false   #  /wa-groups                se WEBHOOK_MAP ativado, o link do webhook ficará como no exemplo: https://seulinkwebhook.com/wa-groups  
-
 
 
 
@@ -91,7 +47,7 @@ DATABASE:
   ENABLED: true
   CONNECTION:
     URI: mongodb://root:b5ti18bDi7NCENgiLctv@127.0.0.1:26712/?authSource=admin&readPreference=primary&ssl=false&directConnection=true
-    DB_PREFIX_NAME: uazapi
+    DB_PREFIX_NAME: <subdomain>
 
 
 
@@ -99,7 +55,7 @@ DATABASE:
 REDIS:
   ENABLED: true
   URI: redis://127.0.0.1:6379
-  PREFIX_KEY: uazapi
+  PREFIX_KEY: <subdomain>
 
 
 
