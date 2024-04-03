@@ -1,6 +1,6 @@
 {
 	"name": "uazapi",
-	"version": "5.7.3",
+	"version": "5.7.4",
 	"description": "A melhor API para WhatsApp",
 	"scripts": {
 		"prestart": "git fetch && git reset --hard origin/main && git pull && npm install --unsafe-perm",
