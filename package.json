@@ -1,11 +1,11 @@
 {
 	"name": "uazapi",
-	"version": "5.8.4",
+	"version": "5.8.5",
 	"description": "A melhor API para WhatsApp",
 	"scripts": {
 		"start": "node uazapi.js",
-		"forceupdate": "git fetch && git reset --hard origin/main && git pull && npm install --unsafe-perm",
-		"forcebaileys": "rm -f package-lock.json && rm -rf node_modules/@whiskeysockets/baileys"
+		"update": "git fetch && git reset --hard origin/main && git pull && npm install --unsafe-perm",
+		"uplib": "rm -f package-lock.json && rm -rf node_modules/@whiskeysockets/baileys"
 	},
 	"dependencies": {
 		"@adiwajshing/keyed-db": "^0.2.4",
