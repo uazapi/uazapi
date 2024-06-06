@@ -1,6 +1,6 @@
 {
 	"name": "uazapi",
-	"version": "5.9.7",
+	"version": "5.9.8",
 	"description": "A melhor API para WhatsApp",
 	"scripts": {
 		"start": "node uazapi.js",
