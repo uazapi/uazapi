@@ -26,7 +26,7 @@
 		"fluent-ffmpeg": "^2.1.2",
 		"hbs": "^4.2.0",
 		"https-proxy-agent": "^7.0.2",
-		"jimp": "^0.16.13",
+		"jimp": "^1.6.0",
 		"join": "^3.0.0",
 		"js-yaml": "^4.1.0",
 		"jsonschema": "^1.4.1",
