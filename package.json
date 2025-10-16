@@ -12,7 +12,7 @@
 		"@ffmpeg-installer/ffmpeg": "^1.1.0",
 		"@hapi/boom": "^10.0.1",
 		"@sentry/node": "^7.59.2",
-		"@whiskeysockets/baileys": "github:uazapi/Baileys#68x-rebased",
+		"@whiskeysockets/baileys": "github:uazapi/Baileys#68x",
 		"axios": "^1.3.5",
 		"class-validator": "^0.13.2",
 		"compression": "^1.7.4",
